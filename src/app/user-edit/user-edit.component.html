@@ -1,0 +1,51 @@
+<button type="button" class="btn btn-success pull-right"  (click)="logOut()"  >logout</button>
+
+<!--<div *ngIf="alert" class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>Deleted</strong> Successfull ! ☺.
+  <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button> 
+</div>
+-->
+<table class="table">
+    <thead>
+      <tr>
+        <th >Id</th>
+        <th >Firstname</th>
+        <th >Lastname</th>
+        <th >Email</th>
+        <th >DOB</th>
+        <th >Salary</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+     
+      <tr  *ngFor="let employee of collection"> 
+        <td> {{employee.id}}</td> 
+        <td> {{employee.firstName | uppercase}}</td> 
+        <td> {{employee.lastName | uppercase}}</td> 
+        <td> {{employee.email}}</td> 
+        <td> {{employee.dob }}</td> 
+        <td> {{employee.salary | currency }}</td> 
+        <td> <a routerLink="/details/{{employee.id}}"> <button class="btn btn-primary" 
+   >Edit</button> </a>
+          &nbsp;&nbsp;
+          <!-- <button class="btn btn-primary"
+          
+           mwlConfirmationPopover
+           [popoverTitle]="popoverTitle"
+           [popoverMessage]="popoverMessage"
+           placement="left"
+           (confirm)="deleteEmployee(employee.id)"
+           (cancel)="cancelClicked = true"
+       
+         >
+         Delete </button></td> -->
+        
+      
+      </tr>
+     
+    </tbody>
+  </table>
+  

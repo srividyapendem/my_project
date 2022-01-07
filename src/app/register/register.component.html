@@ -1,0 +1,24 @@
+<div >
+    <h1> user register  Form  </h1>
+   </div>
+  <div *ngIf="alert"  class="alert alert-success alert-dismissible fade show" role="alert">
+       <strong>success!</strong> Your data added successfully.
+       <button (click)="createAlert()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+     </div>
+   <form [formGroup]="registerEmployee" (ngSubmit)="userRegister()">
+       <div class="form-group">
+           <label class="form-label">EmployeeName</label>
+           <input type="text" class="form-control" formControlName="empName">
+         </div>
+      
+       <div class="form-group">
+           <label class="form-label">Password</label>
+           <input type="password" class="form-control" formControlName="password">
+         </div>
+         <div class="form-group">
+           <label class="form-label">email</label>
+           <input type="email" class="form-control" formControlName="email">
+         </div>
+      
+       <button type="submit" class="btn btn-primary">register</button>
+     </form>

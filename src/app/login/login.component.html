@@ -1,0 +1,42 @@
+
+<form class="container" #userForm ="ngForm">
+  <div class="form-group">
+    <label>UserName</label>
+    <input  [class.is-invalid]="user.invalid && user.touched" type="email" class="form-control" 
+    name="username" #user="ngModel"  [(ngModel)]="username"  
+     required appValidateUserName email>
+     <span class="text-danger"
+     *ngIf="(user.touched || userForm.submitted) && user.errors?.required ">
+     Email is required
+ </span>
+ <span class="text-danger" *ngIf="user.touched && user.errors?.email">
+     Enter a valid email address
+ </span>
+
+ <span class="text-danger" 
+ *ngIf="user.touched && user.errors?.userNameNotAvailable">
+  User Name not available
+</span>
+    <!--<small class="text-danger" [class.d-none]="username.valid || username.untouched">Username Required</small>
+    -->
+    </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input [class.is-invalid]="pass.invalid && pass.touched"
+    type="password" class="form-control"
+     name="password"
+     #pass ="ngModel"
+      [(ngModel)]="password" required  minlength="5">
+      <span class="text-danger"
+      *ngIf="(pass.touched || userForm.submitted) && pass.errors?.required">
+      Password is required
+  </span>
+  <span  class="text-danger" *ngIf="pass.errors?.minlength">Password must be at least 5 characters</span>
+
+ <!-- <small class="text-danger" [class.d-none]="password.valid||password.untouched">passWord Required</small>
+  --> </div>
+
+ <button  [disabled]="this.userForm.invalid" type="submit" class="btn btn-primary"
+  (click)="logIn()">Log In</button>
+  <small class="text-danger" [class.d-none]="loginError">Username or Password is incorrect</small>
+</form>

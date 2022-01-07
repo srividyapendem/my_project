@@ -1,3 +1,4 @@
+import { CommonService } from './common.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'employee';
+  constructor(private _cs:CommonService){}
+
+
+  loggedin(){
+
+  console.log( 'login');
+
+  }
+  
+  logoutUser() {
+
+  console.log('logout');
+  }
 }
